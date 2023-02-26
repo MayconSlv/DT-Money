@@ -13,11 +13,11 @@ export const GlobalStyle = createGlobalStyle`
 
   :focus {
     outline: 0,
-  box-shadow: 0 0 0 2px ${(props) => props.theme['base-green']}
+    box-shadow: 0 0 0 2px ${(props) => props.theme['base-green']}
   }
 
   body {
-    background: ${(props) => props.theme['gray-700']};
+    background: ${(props) => props.theme['gray-600']};
     color: ${(props) => props.theme['gray-100']};
     -webkit-font-smoothing: antialiased;
   }

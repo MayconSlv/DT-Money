@@ -10,7 +10,7 @@ export const HeaderContent = styled.div`
   display: flex;
   justify-content: space-between;
 
-  max-width: 1200px;
+  max-width: 1120px;
   margin: 0 auto;
 `
 export const TransactinButton = styled.button`

@@ -1,12 +1,22 @@
-import styled from 'styled-components'
+import { ReactNode } from 'react'
+import styled, { css } from 'styled-components'
 
-export const SummaryContainer = styled.div`
+interface SummaryContainerProps {
+  variant: ReactNode
+}
+
+export const SummaryContainer = styled.div<SummaryContainerProps>`
   padding: 2.4rem;
   border-radius: 6px;
 
-  background: ${({ theme }) => theme['gray-400']};
-
   width: 35.2rem;
+
+  background: ${({ theme }) => theme['gray-400']};
+  ${(props) =>
+    props.variant === 'green' &&
+    css`
+      background: ${props.theme['base-green']};
+    `}
 
   strong {
     font-weight: 700;
@@ -20,9 +30,5 @@ export const SummaryHeader = styled.header`
 
   span {
     color: ${({ theme }) => theme['gray-200']};
-  }
-
-  svg {
-    color: ${({ theme }) => theme['base-green']};
   }
 `

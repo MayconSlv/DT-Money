@@ -1,14 +1,21 @@
-import { ArrowCircleUp } from 'phosphor-react'
 import { SummaryContainer, SummaryHeader } from './styles'
+import { ReactNode } from 'react'
 
-export function Summary() {
+interface SummaryProps {
+  icon: ReactNode
+  value: string
+  type: string
+  variant?: string
+}
+
+export function Summary({ icon, value, type, variant }: SummaryProps) {
   return (
-    <SummaryContainer>
+    <SummaryContainer variant={variant}>
       <SummaryHeader>
-        <span>Entradas</span>
-        <ArrowCircleUp size={32} />
+        <span>{type}</span>
+        {icon}
       </SummaryHeader>
-      <strong>R$ 17.400,00</strong>
+      <strong>R$ {value}</strong>
     </SummaryContainer>
   )
 }

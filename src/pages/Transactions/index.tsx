@@ -8,6 +8,7 @@ import {
   TransactionsTable,
 } from './styles'
 import { useTheme } from 'styled-components'
+import { SearchForm } from './components/SearchForm'
 
 export function Transactions() {
   const colors = useTheme()
@@ -35,6 +36,8 @@ export function Transactions() {
       </SummaryDisplay>
 
       <TransactionsContainer>
+        <SearchForm />
+
         <TransactionsTable>
           <tbody>
             <tr>

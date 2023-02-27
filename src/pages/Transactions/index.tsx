@@ -1,7 +1,12 @@
 import { ArrowCircleUp, ArrowCircleDown, CurrencyDollar } from 'phosphor-react'
 import { Header } from '../../components/Header'
 import { Summary } from '../../components/Summary'
-import { SummaryDisplay } from './styles'
+import {
+  PriceHighLight,
+  SummaryDisplay,
+  TransactionsContainer,
+  TransactionsTable,
+} from './styles'
 import { useTheme } from 'styled-components'
 
 export function Transactions() {
@@ -28,6 +33,30 @@ export function Transactions() {
           variant="green"
         />
       </SummaryDisplay>
+
+      <TransactionsContainer>
+        <TransactionsTable>
+          <tbody>
+            <tr>
+              <td width="50%">Desenvolvimetno de site</td>
+              <td>
+                <PriceHighLight variant="income">R$ 12.000,00</PriceHighLight>
+              </td>
+              <td>Venda</td>
+              <td>13/04/2022</td>
+            </tr>
+
+            <tr>
+              <td width="50%">Hamburguer</td>
+              <td>
+                <PriceHighLight variant="outcome">- R$ 59,00</PriceHighLight>
+              </td>
+              <td>Alimentação</td>
+              <td>13/04/2022</td>
+            </tr>
+          </tbody>
+        </TransactionsTable>
+      </TransactionsContainer>
     </div>
   )
 }

@@ -3,7 +3,7 @@ import { ReactNode } from 'react'
 
 interface SummaryProps {
   icon: ReactNode
-  value: string
+  value: number
   type: string
   variant?: string
 }
@@ -15,7 +15,7 @@ export function Summary({ icon, value, type, variant }: SummaryProps) {
         <span>{type}</span>
         {icon}
       </SummaryHeader>
-      <strong>R$ {value}</strong>
+      <strong>{value}</strong>
     </SummaryContainer>
   )
 }

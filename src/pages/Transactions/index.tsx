@@ -14,6 +14,23 @@ import { TransactionsContext } from '../../contexts/TransactionsContext'
 
 export function TransactionsPage() {
   const { transactions } = useContext(TransactionsContext)
+  const summary = transactions.reduce(
+    (acc, transaction) => {
+      if (transaction.type === 'income') {
+        acc.income += transaction.price
+        acc.total += transaction.price
+      } else {
+        acc.outcome += transaction.price
+        acc.total -= transaction.price
+      }
+      return acc
+    },
+    {
+      income: 0,
+      outcome: 0,
+      total: 0,
+    },
+  )
 
   const colors = useTheme()
   return (
@@ -24,17 +41,17 @@ export function TransactionsPage() {
         <Summary
           icon={<ArrowCircleUp size={32} color={colors['base-green']} />}
           type="Entradas"
-          value="17.400,00"
+          value={summary.income}
         />
         <Summary
           icon={<ArrowCircleDown size={32} color={colors['base-red']} />}
           type="Saídas"
-          value="1.250,00"
+          value={summary.outcome}
         />
         <Summary
           icon={<CurrencyDollar size={32} color={colors.white} />}
           type="Total"
-          value="1.250,00"
+          value={summary.total}
           variant="green"
         />
       </SummaryDisplay>

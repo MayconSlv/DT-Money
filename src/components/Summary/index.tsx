@@ -1,3 +1,4 @@
+import { priceFormatter } from '../../utils/formatter'
 import { SummaryContainer, SummaryHeader } from './styles'
 import { ReactNode } from 'react'
 
@@ -15,7 +16,7 @@ export function Summary({ icon, value, type, variant }: SummaryProps) {
         <span>{type}</span>
         {icon}
       </SummaryHeader>
-      <strong>{value}</strong>
+      <strong>{priceFormatter.format(value)}</strong>
     </SummaryContainer>
   )
 }

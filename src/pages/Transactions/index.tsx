@@ -9,30 +9,11 @@ import {
 } from './styles'
 import { useTheme } from 'styled-components'
 import { SearchForm } from './components'
-import { useEffect, useState } from 'react'
-
-interface Transactions {
-  id: number
-  description: string
-  type: 'income' | 'outcome'
-  price: number
-  category: string
-  createdAt: string
-}
+import { useContext } from 'react'
+import { TransactionsContext } from '../../contexts/TransactionsContext'
 
 export function TransactionsPage() {
-  const [transactions, setTransactions] = useState<Transactions[]>()
-
-  async function loadTransasctions() {
-    const response = await fetch('http://localhost:3000/transactions')
-    const data = await response.json()
-
-    setTransactions(data)
-  }
-
-  useEffect(() => {
-    loadTransasctions()
-  }, [])
+  const { transactions } = useContext(TransactionsContext)
 
   const colors = useTheme()
   return (

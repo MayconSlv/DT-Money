@@ -9,13 +9,15 @@ import {
 } from './styles'
 import { useTheme } from 'styled-components'
 import { SearchForm } from './components'
-import { useContext } from 'react'
+import { useContextSelector } from 'use-context-selector'
 import { TransactionsContext } from '../../contexts/TransactionsContext'
 import { dateFormatter, priceFormatter } from '../../utils/formatter'
 import { useSummary } from '../../hooks/useSummary'
 
 export function TransactionsPage() {
-  const { transactions } = useContext(TransactionsContext)
+  const transactions = useContextSelector(TransactionsContext, (context) => {
+    return context.transactions
+  })
   const summary = useSummary()
 
   const colors = useTheme()

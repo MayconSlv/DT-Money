@@ -1,5 +1,5 @@
 # <h1 align="center">
-  DT Money
+  <img src="./src/assets/logo.svg" />
 </h1>
 
 ## 🚨Sobre:
